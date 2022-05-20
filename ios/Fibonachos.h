@@ -1,11 +1,8 @@
 #import <React/RCTBridgeModule.h>
-
-#ifdef __cplusplus
-
-#import "fibonachos.h"
-
-#endif
+#import "react-native-fibonachos.h"
 
 @interface Fibonachos : NSObject <RCTBridgeModule>
+
+@property (nonatomic, assign) BOOL setBridgeOnMainQueue;
 
 @end

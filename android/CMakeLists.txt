@@ -5,7 +5,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 add_library(cpp
             SHARED
-            ../cpp/fibonachos.cpp
+            ../cpp/react-native-fibonachos.cpp
             cpp-adapter.cpp
 )
 
