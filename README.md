@@ -2,20 +2,14 @@
 
 Test JSI TurboModule: compute the nth term of the Fibonacci series, and add "nachos".
 
-## Installation
-
-```sh
-npm install fibonachos
-```
-
 ## Usage
 
 ```js
-import { multiply } from "fibonachos";
+import { compute } from "fibonachos";
 
 // ...
 
-const result = await multiply(3, 7);
+const result = compute(10);
 ```
 
 ## Contributing
