@@ -8,9 +8,10 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
-@ReactModule(name = FibonachosModule.NAME)
 public class FibonachosModule extends ReactContextBaseJavaModule {
-    public static final String NAME = "Fibonachos";
+
+    private static native void initialize(long jsiPtr);
+    private static native void destroy();
 
     public FibonachosModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -19,23 +20,28 @@ public class FibonachosModule extends ReactContextBaseJavaModule {
     @Override
     @NonNull
     public String getName() {
-        return NAME;
+        return "Fibonachos";
     }
 
     static {
         try {
             // Used to load the 'native-lib' library on application startup.
-            System.loadLibrary("cpp");
+            System.loadLibrary("fibonachos");
         } catch (Exception ignored) {
         }
     }
 
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
-    @ReactMethod
-    public void multiply(int a, int b, Promise promise) {
-        promise.resolve(nativeMultiply(a, b));
+    @NonNull
+    @Override
+    public void initialize() {
+        super.initialize();
+        FibonachosModule.initialize(
+            this.getReactApplicationContext().getJavaScriptContextHolder().get()
+        );
     }
 
-    public static native int nativeMultiply(int a, int b);
+    @Override
+    public void onCatalystInstanceDestroy() {
+        FibonachosModule.destroy();
+    }
 }

@@ -20,6 +20,7 @@ def safeExtGet(prop, fallback) {
 
 android {
     compileSdkVersion safeExtGet('Fibonachos_compileSdkVersion', 29)
+    ndkVersion safeExtGet('Fibonachos_ndkVersion', '20.1.5948944')
     defaultConfig {
         minSdkVersion safeExtGet('Fibonachos_minSdkVersion', 16)
         targetSdkVersion safeExtGet('Fibonachos_targetSdkVersion', 29)
