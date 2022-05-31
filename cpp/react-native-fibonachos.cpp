@@ -1,6 +1,7 @@
 #include "react-native-fibonachos.h"
 // sstream contains functions to manipulate strings in C++
 #include <sstream>
+#include <climits>
 
 using namespace facebook;
 
@@ -20,11 +21,14 @@ void installFibo(jsi::Runtime& jsiRuntime) {
       }
 
       double n = arguments[0].asNumber();
-			if(n < 2) return jsi::Value(1);
-			long prev = 1;
-			long curr = 1;
-			long tmp = 0;
+			if(n < 2) return jsi::String::createFromUtf8(runtime, "1 nacho");
+			unsigned long long prev = 1;
+			unsigned long long curr = 1;
+			unsigned long long tmp = 0;
 			for(int i=1; i<n; i++) {
+        if (curr > ULLONG_MAX - prev) {
+          return jsi::String::createFromUtf8(runtime, "too many nachos for this planet");
+        }
 				tmp = curr;
 				curr += prev;
 				prev = tmp;
