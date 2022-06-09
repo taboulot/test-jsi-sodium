@@ -1,10 +1,12 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, TextInput } from 'react-native';
-import { compute } from 'fibonachos';
+import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { compute, randomNumber } from 'fibonachos';
 
 export default function App() {
   const [rank, setRank] = React.useState(1);
+  const [number, setNumber] = React.useState<null | number>(null);
+
   return (
     <View style={styles.container}>
       <View>
@@ -19,6 +21,14 @@ export default function App() {
       <Text style={styles.result}>
         Result: {rank === 0 ? 'no nachos' : compute(rank - 1)}
       </Text>
+      <View style={styles.separator} />
+      <Text>Enter Fibonachos rank: {number}</Text>
+      <Button
+        title="Get random number"
+        onPress={() => {
+          setNumber(randomNumber());
+        }}
+      />
     </View>
   );
 }
@@ -44,5 +54,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginTop: 24,
+  },
+  separator: {
+    height: 10,
+    backgroundColor: 'black',
+    width: '100%',
   },
 });
