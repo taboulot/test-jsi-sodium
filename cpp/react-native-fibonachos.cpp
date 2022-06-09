@@ -49,8 +49,7 @@ void installFibo(jsi::Runtime& jsiRuntime) {
       // Finally the function needs to return a jsi::Value (read JavaScript value)
       [](jsi::Runtime& runtime, const jsi::Value& thisValue, const jsi::Value* arguments, size_t count) -> jsi::Value {
 
-        int res = 32;
-        return jsi::Value(res);
+        return jsi::Value((int)randombytes_random());
       }
     );
 

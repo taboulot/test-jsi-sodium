@@ -22,7 +22,7 @@ export default function App() {
         Result: {rank === 0 ? 'no nachos' : compute(rank - 1)}
       </Text>
       <View style={styles.separator} />
-      <Text>Enter Fibonachos rank: {number}</Text>
+      <Text style={styles.result}>Random number from LibSodium: {number}</Text>
       <Button
         title="Get random number"
         onPress={() => {
@@ -59,5 +59,6 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: 'black',
     width: '100%',
+    marginVertical: 20,
   },
 });
