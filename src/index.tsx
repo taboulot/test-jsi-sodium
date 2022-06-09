@@ -3,7 +3,7 @@ export function compute(n: number): string {
   return global.computeFibo(n);
 }
 
-export function randomNumber(): number {
+export function randomNumber(): string {
   //@ts-expect-error global not typed
   return global.randomNumber();
 }

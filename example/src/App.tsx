@@ -5,7 +5,7 @@ import { compute, randomNumber } from 'fibonachos';
 
 export default function App() {
   const [rank, setRank] = React.useState(1);
-  const [number, setNumber] = React.useState<null | number>(null);
+  const [number, setNumber] = React.useState<null | string>(null);
 
   return (
     <View style={styles.container}>
