@@ -2,6 +2,7 @@
 // sstream contains functions to manipulate strings in C++
 #include <sstream>
 #include <climits>
+#import "sodium.h"
 
 using namespace facebook;
 
